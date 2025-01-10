@@ -3,7 +3,7 @@ Dockertize the target project (langgraph-research-rabbit)
 
 This repository contains the Dockerfile and docker-compose configuration for containerizing the Langgraph and Research Rabbit setup.
 
-!./Langgraph-research-rabbit-workflow.png
+![Research Rabbit Workflow](./Langgraph-research-rabbit-workflow.png)
 
 
 *Image source: [langchain-ai/research-rabbit](https://github.com/langchain-ai/research-rabbit)*
