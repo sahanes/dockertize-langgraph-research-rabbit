@@ -51,17 +51,18 @@ This repository contains the Dockerfile and docker-compose configuration for con
   /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024
 
 
-Purpose:
--  Set PYTHONPATH: Points to ```/deps/research-rabbit``` to ensure the application has access to project files.
--  Add /usr/local/bin to PATH: Ensures the langgraph CLI can be found during execution.
--  Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.
+  Purpose:
+  -  Set PYTHONPATH: Points to ```/deps/research-rabbit``` to ensure the application has access to project files.
+  -  Add /usr/local/bin to PATH: Ensures the langgraph CLI can be found during execution.
+  -  Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.
 
-- Dockerfile Command:
-```bash RUN echo '#!/bin/sh\n\
+- **Dockerfile Command:**
+
+  ```bash RUN echo '#!/bin/sh\n\
 export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
-' > /start.sh && chmod +x /start.sh```
+' > /start.sh && chmod +x /start.sh
 
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:```bash RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
