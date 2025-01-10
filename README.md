@@ -1,6 +1,6 @@
 # dockertize-langgraph-research-rabbit
 Dockertize the target project (langgraph-research-rabbit)
-
+Learn about the research rabbit: [research-rabbit](https://github.com/langchain-ai/research-rabbit): Fully local web research and report writing assistant
 This repository contains the Dockerfile and docker-compose configuration for containerizing the Langgraph and Research Rabbit setup.
 
 ## Features
