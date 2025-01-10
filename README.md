@@ -52,16 +52,14 @@ Purpose:
 -  Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.
 
 - Dockerfile Command:
-```bash
-RUN echo '#!/bin/sh\n\
+```bash RUN echo '#!/bin/sh\n\
 export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
 ' > /start.sh && chmod +x /start.sh```
 
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:
-```bash
-RUN pip install --upgrade pip && \
+```bash RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
     pip install -e . && \
     find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
@@ -71,14 +69,12 @@ Purpose:
 -  Allows debugging to verify the CLI installation and path.
 
 - Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point:
-```bash
-CMD ["/start.sh"]```
+```bash CMD ["/start.sh"]```
 
 ## Getting Started
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/langchain-ai/research-rabbit.git
-    cd research-rabbit
+   ```bash git clone https://github.com/langchain-ai/research-rabbit.git
+    cd research-rabbit```
 
 2. Create the updated docker-composer.yaml file as in this repository
 3. Create the Dockerfile as in this repository
