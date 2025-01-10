@@ -75,11 +75,15 @@ This repository contains the Dockerfile and docker-compose configuration for con
   find /usr/local/bin -name "langgraph*"  # Debug: find the executable
   ```
 
-Purpose:
--  Ensures the langgraph-cli is available globally in the container.
--  Allows debugging to verify the CLI installation and path.
+  Purpose:
+  -  Ensures the langgraph-cli is available globally in the container.
+  -  Allows debugging to verify the CLI installation and path.
 
-- Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point: ```CMD ["/start.sh"]```
+- **Command to Use the Startup Script:** Ensured the container runs the start.sh script as the main entry point:
+
+   ```bash
+  CMD ["/start.sh"]
+   ```
 
 ## Getting Started
 1. Clone the repository:
