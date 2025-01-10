@@ -56,14 +56,14 @@ RUN echo '#!/bin/sh\n\
 export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
-' > /start.sh && chmod +x /start.sh
+' > /start.sh && chmod +x /start.sh```
 
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:
 ```bash
 RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
     pip install -e . && \
-    find /usr/local/bin -name "langgraph*"  # Debug: find the executable
+    find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
 
 Purpose:
 -Ensures the langgraph-cli is available globally in the container.
@@ -71,7 +71,7 @@ Purpose:
 
 - Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point:
 ```bash
-CMD ["/start.sh"]
+CMD ["/start.sh"]```
 
 ## Getting Started
 1. Clone the repository:
