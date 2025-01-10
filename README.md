@@ -21,7 +21,7 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 **Reasons:**
 - Version Decleration: "3.9" is recommended for compatibility with newer Docker Compose configurations.
-- healthcheck.test Format: Docker requires test to be a proper array, either as ["CMD", "command"] or ["CMD-SHELL", "shell_command"]. This ensures correct parsing and execution of the healthcheck commands.
+- healthcheck.test Format: Docker requires test to be a proper array, either as ``` ["CMD", "command"]``` or ```["CMD-SHELL", "shell_command"]```. This ensures correct parsing and execution of the healthcheck commands.
 - ports Mapping for langgraph-api: First, I set the inputbound and output bound ports be 2024 on my Windows Defender Firewall. This reflects the correct internal port so that the application is accessible on the expected port.
 - image vs. build for langgraph-api: Assuming that an image is pre-built and tagged as ${IMAGE_NAME}, if such an image does not exist, docker-compose will fail. The updated configuration builds the image locally - using the provided Dockerfile and source code in the current directory (context: .).
 - Volumes Definition for langgraph-api ```volumes:
