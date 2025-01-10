@@ -42,14 +42,14 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 ## Summary of Key Points in Dockerfile
 
-### Startup Script (start.sh)
-A `start.sh` script was created to manage the application startup and set environment variables:
+- **Startup Script (start.sh):** A `start.sh` script was created to manage the application startup and set environment variables:
+  
+  ```bash
+  #!/bin/sh
+  export PYTHONPATH=/deps/research-rabbit
+  export PATH=/usr/local/bin:$PATH
+  /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024
 
-```bash
-#!/bin/sh
-export PYTHONPATH=/deps/research-rabbit
-export PATH=/usr/local/bin:$PATH
-/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024
 
 Purpose:
 -  Set PYTHONPATH: Points to ```/deps/research-rabbit``` to ensure the application has access to project files.
