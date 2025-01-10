@@ -1,8 +1,6 @@
 # dockertize-langgraph-research-rabbit
 Dockertize the target project (langgraph-research-rabbit)
 
-# dockertize-langgraph-research-rabbit
-
 This repository contains the Dockerfile and docker-compose configuration for containerizing the Langgraph and Research Rabbit setup.
 
 ## Features
@@ -53,7 +51,8 @@ export PATH=/usr/local/bin:$PATH
 --Purpose:
 ---Set PYTHONPATH: Points to /deps/research-rabbit to ensure the application has access to project files.
 ---Add /usr/local/bin to PATH: Ensures the langgraph CLI can be found during execution.
----Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.
+---Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.```
+
 - Dockerfile Command:
 ```bash
 RUN echo '#!/bin/sh\n\
@@ -67,9 +66,11 @@ RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
     pip install -e . && \
     find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
+
 Purpose:
 ---Ensures the langgraph-cli is available globally in the container.
 ---Allows debugging to verify the CLI installation and path.
+
 - Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point:
 ```bash
 CMD ["/start.sh"]```
