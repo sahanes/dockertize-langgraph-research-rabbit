@@ -26,7 +26,9 @@ This repository contains the Dockerfile and docker-compose configuration for con
 - image vs. build for langgraph-api: Assuming that an image is pre-built and tagged as ${IMAGE_NAME}, if such an image does not exist, docker-compose will fail. The updated configuration builds the image locally - using the provided Dockerfile and source code in the current directory (context: .).
 - Volumes Definition for langgraph-api: Mapped the project source code directory to the container for live updates and access:
 ```bash volumes:
-  - ./src:/deps/research-rabbit/src```
+  - ./src:/deps/research-rabbit/src
+
+
 This allows the container to access the application code and ensures consistency with the PYTHONPATH.
 - Adding Exposed Ports for langgraph-redis: xposing port 6379 for langgraph-redis is optional but helpful for debugging purposes if you need to interact with Redis directly from the host system.
 - environment update: Ensuring all environment variables (e.g., REDIS_URI, POSTGRES_URI, API keys) are passed into the container for langgraph-api ensures the application can connect to the appropriate services.
@@ -36,18 +38,23 @@ This allows the container to access the application code and ensures consistency
       CORS_ALLOW_ORIGINS: "https://smith.langchain.com"
       CORS_ALLOW_CREDENTIALS: "true"
       CORS_ALLOW_HEADERS: "*"
-```
+
+
+
 - Added the command field: This ensures the container executes the start.sh script as the main startup process.
  ```bash command: /start.sh```
 
 
 ## Summary of Key Points in Dockefile
 - Startup Script (start.sh): A start.sh script was created to manage the application startup and set environment variables:
+
+
 ```bash
 #!/bin/sh
 export PYTHONPATH=/deps/research-rabbit
 export PATH=/usr/local/bin:$PATH
-/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024```
+/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024
+
 
 Purpose:
 -Set PYTHONPATH: Points to /deps/research-rabbit to ensure the application has access to project files.
@@ -60,14 +67,14 @@ RUN echo '#!/bin/sh\n\
 export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
-' > /start.sh && chmod +x /start.sh```
+' > /start.sh && chmod +x /start.sh
 
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:
 ```bash
 RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
     pip install -e . && \
-    find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
+    find /usr/local/bin -name "langgraph*"  # Debug: find the executable
 
 Purpose:
 -Ensures the langgraph-cli is available globally in the container.
@@ -75,13 +82,13 @@ Purpose:
 
 - Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point:
 ```bash
-CMD ["/start.sh"]```
+CMD ["/start.sh"]
 
 ## Getting Started
 1. Clone the repository:
    ```bash
    git clone https://github.com/langchain-ai/research-rabbit.git
-    cd research-rabbit```
+    cd research-rabbit
 
 2. Create the updated docker-composer.yaml file as in this repository
 3. Create the Dockerfile as in this repository
