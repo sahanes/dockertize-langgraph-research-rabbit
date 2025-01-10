@@ -40,7 +40,8 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 
 ## Summary of Key Points in Dockefile
-- Startup Script (start.sh): A start.sh script was created to manage the application startup and set environment variables:```yaml
+- Startup Script (start.sh): A start.sh script was created to manage the application startup and set environment variables:
+```
 #!/bin/sh
 export PYTHONPATH=/deps/research-rabbit
 export PATH=/usr/local/bin:$PATH
