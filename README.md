@@ -58,8 +58,7 @@ export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
 ' > /start.sh && chmod +x /start.sh```
 
-- Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:
-```bash RUN pip install --upgrade pip && \
+- Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:```bash RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
     pip install -e . && \
     find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
