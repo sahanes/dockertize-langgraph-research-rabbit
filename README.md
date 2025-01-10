@@ -37,7 +37,7 @@ This allows the container to access the application code and ensures consistency
       LANGSMITH_ENDPOINT: "https://api.smith.langchain.com"
       CORS_ALLOW_ORIGINS: "https://smith.langchain.com"
       CORS_ALLOW_CREDENTIALS: "true"
-      CORS_ALLOW_HEADERS: "*"
+      CORS_ALLOW_HEADERS: "*"```
 
 
 
