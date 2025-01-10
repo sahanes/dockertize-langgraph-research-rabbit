@@ -25,8 +25,9 @@ This repository contains the Dockerfile and docker-compose configuration for con
 - ports Mapping for langgraph-api: First, I set the inputbound and output bound ports be 2024 on my Windows Defender Firewall. This reflects the correct internal port so that the application is accessible on the expected port.
 - image vs. build for langgraph-api: Assuming that an image is pre-built and tagged as ${IMAGE_NAME}, if such an image does not exist, docker-compose will fail. The updated configuration builds the image locally - using the provided Dockerfile and source code in the current directory (context: .).
 - Volumes Definition for langgraph-api: Mapped the project source code directory to the container for live updates and access:
+
 ```bash volumes:
-  - ./src:/deps/research-rabbit/src
+  - ./src:/deps/research-rabbit/src```
 
 
 This allows the container to access the application code and ensures consistency with the PYTHONPATH.
@@ -42,6 +43,8 @@ This allows the container to access the application code and ensures consistency
 
 
 - Added the command field: This ensures the container executes the start.sh script as the main startup process.
+
+
  ```bash command: /start.sh```
 
 
