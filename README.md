@@ -42,7 +42,7 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 ## Summary of Key Points in Dockerfile
 
-- Startup Script (start.sh): A start.sh script was created to manage the application startup and set environment variables:
+- **Startup Script** (start.sh): A start.sh script was created to manage the application startup and set environment variables:
 
     ```bash
     #!/bin/sh
@@ -64,12 +64,16 @@ This repository contains the Dockerfile and docker-compose configuration for con
   export PATH=/usr/local/bin:$PATH\n\
   /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
   ' > /start.sh && chmod +x /start.sh
+  ```
 
+- **Installation of langgraph-cli:** Installed the langgraph-cli with in-memory support:
 
-- Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:```bash RUN pip install --upgrade pip && \
-    pip install "langgraph-cli[inmem]" && \
-    pip install -e . && \
-    find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
+  ```bash
+  RUN pip install --upgrade pip && \
+  pip install "langgraph-cli[inmem]" && \
+  pip install -e . && \
+  find /usr/local/bin -name "langgraph*"  # Debug: find the executable
+  ```
 
 Purpose:
 -  Ensures the langgraph-cli is available globally in the container.
