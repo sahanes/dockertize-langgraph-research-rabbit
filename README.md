@@ -26,8 +26,9 @@ This repository contains the Dockerfile and docker-compose configuration for con
 - image vs. build for langgraph-api: Assuming that an image is pre-built and tagged as ${IMAGE_NAME}, if such an image does not exist, docker-compose will fail. The updated configuration builds the image locally - using the provided Dockerfile and source code in the current directory (context: .).
 - Volumes Definition for langgraph-api
 
-```yaml volumes:
-  - ./src:/deps/research-rabbit/src # Maps the project source directory for live updates and access```
+```yaml
+volumes:
+  - ./src:/deps/research-rabbit/src # Maps the project source directory for live updates and access
 
 
 This allows the container to access the application code and ensures consistency with the PYTHONPATH.
