@@ -60,10 +60,10 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
   ```bash
   RUN echo '#!/bin/sh\n\
-export PYTHONPATH=/deps/research-rabbit\n\
-export PATH=/usr/local/bin:$PATH\n\
-/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
-' > /start.sh && chmod +x /start.sh
+  export PYTHONPATH=/deps/research-rabbit\n\
+  export PATH=/usr/local/bin:$PATH\n\
+  /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
+  ' > /start.sh && chmod +x /start.sh
 
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:```bash RUN pip install --upgrade pip && \
     pip install "langgraph-cli[inmem]" && \
