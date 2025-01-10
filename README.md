@@ -58,7 +58,8 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 - **Dockerfile Command:**
 
-  ```bash RUN echo '#!/bin/sh\n\
+  ```bash
+  RUN echo '#!/bin/sh\n\
 export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
