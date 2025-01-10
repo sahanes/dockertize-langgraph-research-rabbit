@@ -6,7 +6,8 @@ This repository contains the Dockerfile and docker-compose configuration for con
 ![Research Rabbit Workflow](./Langgraph-research-rabbit-workflow.png)
 
 
-*Image source: [langchain-ai/research-rabbit](https://github.com/langchain-ai/research-rabbit)*
+Image source: [langchain-ai/research-rabbit](https://github.com/langchain-ai/research-rabbit)
+
 Learn about the research rabbit: [Langgraph-research-rabbit](https://github.com/langchain-ai/research-rabbit): Fully local web research and report writing assistant
 
 ## Features
