@@ -95,14 +95,14 @@ This repository contains the Dockerfile and docker-compose configuration for con
 
 3. Create the **updated** <docker-composer.yaml> file as in this repository
 4. Create the Dockerfile as in this repository
-5. Create your <.env> file with also having the name for your image included as research-rabbit added ('TAVILY_API_KEY` and `LANGSMITH_API_KEY`)
+5. Create your <.env> file with also having the name for your image included as research-rabbit added (<TAVILY_API_KEY> and <LANGSMITH_API_KEY>)
 6. login Docker desktop
 7. run the command in the same directory:
 
    ```bash
    docker-compose up --build
    ```
-9. If everything works fine, you should be able to access langraph Studio right from your Windows machine! Amazing!!!:
+9. If everything works fine, you should be able to access langraph Studio right from your Windows machine! Amazing!!! 🥳
 
     API: http://127.0.0.1:2024
     Studio UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
