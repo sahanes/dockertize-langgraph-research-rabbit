@@ -1,0 +1,62 @@
+version: "3.9"
+
+volumes:
+  langgraph-data:
+    driver: local
+
+services:
+  langgraph-redis:
+    image: redis:6
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 1s
+      retries: 5
+    ports:
+      - "6379:6379"  # Expose Redis port (optional for debugging)
+
+  langgraph-postgres:
+    image: postgres:16
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - langgraph-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      start_period: 10s
+      timeout: 1s
+      retries: 5
+      interval: 5s
+
+  langgraph-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2024:2024"
+      - "8123:8123"
+    depends_on:
+      langgraph-redis:
+        condition: service_healthy
+      langgraph-postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    volumes:
+      - ./src:/deps/research-rabbit/src
+    environment:
+      REDIS_URI: redis://langgraph-redis:6379
+      POSTGRES_URI: postgres://postgres:postgres@langgraph-postgres:5432/postgres?sslmode=disable
+      LANGSMITH_API_KEY: ${LANGSMITH_API_KEY}
+      TAVILY_API_KEY: ${TAVILY_API_KEY}
+      HOST: "0.0.0.0"
+      PORT: "2024"
+      LANGSMITH_ENDPOINT: "https://api.smith.langchain.com"
+      CORS_ALLOW_ORIGINS: "https://smith.langchain.com"
+      CORS_ALLOW_CREDENTIALS: "true"
+      CORS_ALLOW_HEADERS: "*"
+    command: /start.sh
