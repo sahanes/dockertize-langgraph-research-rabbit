@@ -27,9 +27,9 @@ This repository contains the Dockerfile and docker-compose configuration for con
 - Volumes Definition for langgraph-api ```volumes:
   -./src:/deps/research-rabbit/src # Maps the project source directory for live updates and access```
 
-This allows the container to access the application code and ensures consistency with the PYTHONPATH.
+    This allows the container to access the application code and ensures consistency with the PYTHONPATH.
 - Adding Exposed Ports for langgraph-redis: xposing port 6379 for langgraph-redis is optional but helpful for debugging purposes if you need to interact with Redis directly from the host system.
-- environment update: Ensuring all environment variables (e.g., REDIS_URI, POSTGRES_URI, API keys) are passed into the container for langgraph-api ensures the application can connect to the appropriate services.```bash HOST: "0.0.0.0"
+- environment update: Ensuring all environment variables (e.g., REDIS_URI, POSTGRES_URI, API keys) are passed into the container for langgraph-api ensures the application can connect to the appropriate services.```HOST: "0.0.0.0"
       PORT: "2024"
       LANGSMITH_ENDPOINT: "https://api.smith.langchain.com"
       CORS_ALLOW_ORIGINS: "https://smith.langchain.com"
