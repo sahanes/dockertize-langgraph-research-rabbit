@@ -47,11 +47,12 @@ This allows the container to access the application code and ensures consistency
 #!/bin/sh
 export PYTHONPATH=/deps/research-rabbit
 export PATH=/usr/local/bin:$PATH
-/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024
---Purpose:
----Set PYTHONPATH: Points to /deps/research-rabbit to ensure the application has access to project files.
----Add /usr/local/bin to PATH: Ensures the langgraph CLI can be found during execution.
----Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.```
+/usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024```
+
+Purpose:
+-Set PYTHONPATH: Points to /deps/research-rabbit to ensure the application has access to project files.
+-Add /usr/local/bin to PATH: Ensures the langgraph CLI can be found during execution.
+-Run langgraph dev: Starts the application on host 0.0.0.0 and port 2024.```
 
 - Dockerfile Command:
 ```bash
@@ -60,6 +61,7 @@ export PYTHONPATH=/deps/research-rabbit\n\
 export PATH=/usr/local/bin:$PATH\n\
 /usr/local/bin/langgraph dev --host 0.0.0.0 --port 2024\n\
 ' > /start.sh && chmod +x /start.sh```
+
 - Installation of langgraph-cli: Installed the langgraph-cli with in-memory support:
 ```bash
 RUN pip install --upgrade pip && \
@@ -68,8 +70,8 @@ RUN pip install --upgrade pip && \
     find /usr/local/bin -name "langgraph*"  # Debug: find the executable```
 
 Purpose:
----Ensures the langgraph-cli is available globally in the container.
----Allows debugging to verify the CLI installation and path.
+-Ensures the langgraph-cli is available globally in the container.
+-Allows debugging to verify the CLI installation and path.
 
 - Command to Use the Startup Script: Ensured the container runs the start.sh script as the main entry point:
 ```bash
